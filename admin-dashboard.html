@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Segoe UI', Arial, sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      background:#f4f6f8;
+      color:#222;
+    }
+
+    header{
+      background:#2874f0;
+      color:#fff;
+      padding:20px 40px;
+      font-size:22px;
+      font-weight:600;
+    }
+
+    .wrapper{
+      padding:40px;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:25px;
+      margin-bottom:40px;
+    }
+
+    .card{
+      background:#fff;
+      padding:25px;
+      border-radius:16px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.1);
+    }
+
+    .card h3{
+      font-size:16px;
+      margin-bottom:10px;
+      color:#555;
+    }
+
+    .card p{
+      font-size:26px;
+      font-weight:700;
+      color:#2874f0;
+    }
+
+    h2{
+      margin-bottom:15px;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      background:#fff;
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 6px 18px rgba(0,0,0,0.1);
+    }
+
+    th, td{
+      padding:14px;
+      text-align:left;
+      border-bottom:1px solid #eee;
+      font-size:14px;
+    }
+
+    th{
+      background:#fafafa;
+      font-weight:600;
+    }
+
+    .low{
+      color:#d32f2f;
+      font-weight:600;
+    }
+
+    .footer{
+      margin-top:40px;
+      font-size:14px;
+    }
+
+    .footer a{
+      color:#2874f0;
+      text-decoration:underline;
+      cursor:pointer;
+    }
+
+    @media(max-width:768px){
+      .wrapper{
+        padding:20px;
+      }
+      header{
+        padding:15px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  Admin Dashboard
+</header>
+
+<div class="wrapper">
+
+  <!-- SUMMARY CARDS -->
+  <div class="cards">
+    <div class="card">
+      <h3>Today Revenue</h3>
+      <p>₹12,450</p>
+    </div>
+
+    <div class="card">
+      <h3>Products Sold Today</h3>
+      <p>96</p>
+    </div>
+
+    <div class="card">
+      <h3>Total Stock Items</h3>
+      <p>320</p>
+    </div>
+
+    <div class="card">
+      <h3>Low Stock Alerts</h3>
+      <p>3</p>
+    </div>
+  </div>
+
+  <!-- STOCK TABLE -->
+  <h2>Current Stock Overview</h2>
+
+  <table>
+    <tr>
+      <th>Product</th>
+      <th>Category</th>
+      <th>Stock</th>
+      <th>Status</th>
+    </tr>
+
+    <tr>
+      <td>Milk</td>
+      <td>Dairy</td>
+      <td>18</td>
+      <td>Available</td>
+    </tr>
+
+    <tr>
+      <td>Butter</td>
+      <td>Dairy</td>
+      <td>4</td>
+      <td class="low">Low Stock</td>
+    </tr>
+
+    <tr>
+      <td>Tomato</td>
+      <td>Vegetables</td>
+      <td>35</td>
+      <td>Available</td>
+    </tr>
+
+    <tr>
+      <td>Rice</td>
+      <td>Grocery</td>
+      <td>120</td>
+      <td>Available</td>
+    </tr>
+  </table>
+
+  <div class="footer">
+    <a onclick="goHome()">← Back to Home</a>
+  </div>
+
+</div>
+
+<script>
+  function goHome(){
+    window.location.href = "index.html";
+  }
+</script>
+
+</body>
+</html>

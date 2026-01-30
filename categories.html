@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Choose Category</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Segoe UI', Arial, sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      background: linear-gradient(
+        rgba(0,0,0,0.7),
+        rgba(0,0,0,0.8)
+      ),
+      url("https://images.unsplash.com/photo-1542838132-92c53300491e");
+      background-size:cover;
+      background-position:center;
+      color:#fff;
+    }
+
+    .wrapper{
+      min-height:100vh;
+      padding:50px;
+    }
+
+    .top{
+      max-width:700px;
+      margin-bottom:40px;
+    }
+
+    .top h1{
+      font-size:36px;
+      margin-bottom:15px;
+    }
+
+    .top p{
+      font-size:17px;
+      color:#e0e0e0;
+      line-height:1.6;
+    }
+
+    .categories{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+      gap:30px;
+      max-width:900px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.95);
+      color:#222;
+      padding:30px 25px;
+      border-radius:18px;
+      cursor:pointer;
+      transition:0.3s;
+      box-shadow:0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 14px 30px rgba(0,0,0,0.5);
+    }
+
+    .emoji{
+      font-size:40px;
+      margin-bottom:15px;
+    }
+
+    .card h3{
+      font-size:22px;
+      margin-bottom:10px;
+    }
+
+    .card p{
+      font-size:14px;
+      color:#555;
+      line-height:1.6;
+    }
+
+    .back{
+      margin-top:50px;
+      font-size:14px;
+    }
+
+    .back a{
+      color:#ddd;
+      text-decoration:underline;
+      cursor:pointer;
+    }
+
+    @media(max-width:768px){
+      .wrapper{
+        padding:30px;
+      }
+      .top h1{
+        font-size:30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrapper">
+
+    <div class="top">
+      <h1>What are you looking for today?</h1>
+      <p>
+        Choose a category and explore fresh items,
+        daily essentials, and groceries with ease.
+      </p>
+    </div>
+
+    <div class="categories">
+
+      <div class="card" onclick="openCategory('dairy')">
+        <div class="emoji">🥛</div>
+        <h3>Dairy Products</h3>
+        <p>
+          Milk, curd, butter, cheese and other
+          fresh dairy items for your daily needs.
+        </p>
+      </div>
+
+      <div class="card" onclick="openCategory('vegetables')">
+        <div class="emoji">🥦</div>
+        <h3>Fresh Vegetables</h3>
+        <p>
+          Handpicked fresh vegetables brought
+          straight from the market.
+        </p>
+      </div>
+
+      <div class="card" onclick="openCategory('grocery')">
+        <div class="emoji">🛒</div>
+        <h3>Grocery & Essentials</h3>
+        <p>
+          Rice, wheat, oil, sugar and all
+          essential grocery items in one place.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="back">
+      <a onclick="goHome()">← Back to Home</a>
+    </div>
+
+  </div>
+
+  <script>
+    function openCategory(type){
+      if(type === "dairy"){
+        window.location.href = "products-dairy.html";
+      }
+      else if(type === "vegetables"){
+        window.location.href = "products-vegetables.html";
+      }
+      else{
+        window.location.href = "products-grocery.html";
+      }
+    }
+
+    function goHome(){
+      window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>

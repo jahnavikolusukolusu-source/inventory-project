@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sales & Cart</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    margin: 0;
+}
+
+header {
+    background: #ff9800;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 26px;
+}
+
+.container {
+    width: 90%;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background: #ffe0b2;
+}
+
+#cartSection {
+    margin-top: 30px;
+}
+
+button {
+    background: #ff9800;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #e68900;
+}
+
+.bill {
+    margin-top: 25px;
+    background: white;
+    padding: 20px;
+    display: none;
+    border-radius: 8px;
+}
+</style>
+</head>
+
+<body>
+
+<header>Sales & Cart</header>
+
+<div class="container">
+
+<h3>Cart</h3>
+
+<table id="cartTable">
+<tr>
+    <th>Product</th>
+    <th>Price</th>
+    <th>Qty</th>
+    <th>Total</th>
+</tr>
+</table>
+
+<div id="cartTotal" style="text-align:right; font-size:18px; margin-top:15px;">
+    Grand Total: ₹0
+</div>
+
+<center>
+    <button onclick="generateBill()">Generate Bill</button>
+</center>
+
+<div class="bill" id="billSection">
+    <h3>Inventory POS Bill</h3>
+    <p><b>Date:</b> <span id="billDate"></span></p>
+    <hr>
+    <div id="billItems"></div>
+    <hr>
+    <h3>Total Amount: ₹<span id="finalAmount"></span></h3>
+    <p>Thanks for shopping!</p>
+</div>
+
+</div>
+
+<script>
+// Mock cart data (replace with actual cart logic)
+let cartItems = [
+    { name: "Rice", price: 60, qty: 1 },
+    { name: "Oil", price: 160, qty: 1 }
+];
+
+function loadCart() {
+    let cartTable = document.getElementById("cartTable");
+    let grandTotal = 0;
+
+    cartItems.forEach(item => {
+        let total = item.price * item.qty;
+        grandTotal += total;
+
+        cartTable.innerHTML += `
+            <tr>
+                <td>${item.name}</td>
+                <td>₹${item.price}</td>
+                <td>${item.qty}</td>
+                <td>₹${total}</td>
+            </tr>
+        `;
+    });
+
+    document.getElementById("cartTotal").innerText = "Grand Total: ₹" + grandTotal;
+}
+
+function generateBill() {
+    let date = new Date().toLocaleString();
+    document.getElementById("billDate").innerText = date;
+
+    let billItemsArea = document.getElementById("billItems");
+    billItemsArea.innerHTML = "";
+
+    let grandTotal = 0;
+    cartItems.forEach(item => {
+        let total = item.price * item.qty;
+        grandTotal += total;
+        billItemsArea.innerHTML += `<p>${item.name} x ${item.qty} = ₹${total}</p>`;
+    });
+
+    document.getElementById("finalAmount").innerText = grandTotal;
+    document.getElementById("billSection").style.display = "block";
+}
+
+loadCart();
+</script>
+
+</body>
+</html>

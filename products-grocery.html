@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grocery & Essentials</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Segoe UI', Arial, sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      background: linear-gradient(
+        rgba(0,0,0,0.7),
+        rgba(0,0,0,0.85)
+      ),
+      url("https://images.unsplash.com/photo-1606787366850-de6330128bfc");
+      background-size:cover;
+      background-position:center;
+      color:#fff;
+    }
+
+    .wrapper{
+      padding:50px;
+    }
+
+    .top{
+      max-width:720px;
+      margin-bottom:40px;
+    }
+
+    .top h1{
+      font-size:36px;
+      margin-bottom:12px;
+    }
+
+    .top p{
+      font-size:17px;
+      color:#e0e0e0;
+      line-height:1.6;
+    }
+
+    .products{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+      gap:30px;
+      max-width:1000px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.95);
+      color:#222;
+      padding:25px;
+      border-radius:18px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.4);
+      transition:0.3s;
+      text-align:center;
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 14px 30px rgba(0,0,0,0.5);
+    }
+
+    .product-img{
+      width:120px;
+      height:120px;
+      object-fit:contain;
+      margin-bottom:12px;
+    }
+
+    .card h3{
+      font-size:20px;
+      margin-bottom:6px;
+    }
+
+    .price{
+      font-size:15px;
+      color:#2e7d32;
+      font-weight:600;
+      margin-bottom:12px;
+    }
+
+    .qty{
+      margin-bottom:15px;
+      font-size:14px;
+    }
+
+    .qty input{
+      width:60px;
+      padding:5px;
+      margin-left:8px;
+    }
+
+    .card button{
+      padding:10px 22px;
+      border:none;
+      border-radius:20px;
+      background:#2874f0;
+      color:white;
+      cursor:pointer;
+      font-size:14px;
+    }
+
+    .card button:hover{
+      background:#1a5dcc;
+    }
+
+    .message{
+      margin-top:20px;
+      font-size:15px;
+      color:#c8ffc8;
+      display:none;
+    }
+
+    .actions{
+      margin-top:40px;
+    }
+
+    .actions button{
+      padding:12px 28px;
+      border:none;
+      border-radius:25px;
+      background:#4caf50;
+      color:white;
+      font-size:15px;
+      cursor:pointer;
+      margin-right:15px;
+    }
+
+    .actions button:hover{
+      background:#388e3c;
+    }
+
+    .back{
+      margin-top:30px;
+      font-size:14px;
+    }
+
+    .back a{
+      color:#ddd;
+      text-decoration:underline;
+      cursor:pointer;
+    }
+
+    @media(max-width:768px){
+      .wrapper{ padding:30px; }
+      .top h1{ font-size:30px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrapper">
+
+    <div class="top">
+      <h1>Grocery & Essentials</h1>
+      <p>
+        Daily grocery items and essentials —
+        simple to choose, easy to buy.
+      </p>
+    </div>
+
+    <div class="products">
+
+      <div class="card">
+        <img src="images/rice.png" class="product-img" alt="Rice">
+        <h3>Rice</h3>
+        <div class="price">₹50 / kg</div>
+        <div class="qty">
+          Quantity:
+          <input type="number" min="1" value="1">
+        </div>
+        <button onclick="addToCart('Rice')">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="images/wheat.png" class="product-img" alt="Wheat">
+        <h3>Wheat</h3>
+        <div class="price">₹45 / kg</div>
+        <div class="qty">
+          Quantity:
+          <input type="number" min="1" value="1">
+        </div>
+        <button onclick="addToCart('Wheat')">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="images/sugar.png" class="product-img" alt="Sugar">
+        <h3>Sugar</h3>
+        <div class="price">₹40 / kg</div>
+        <div class="qty">
+          Quantity:
+          <input type="number" min="1" value="1">
+        </div>
+        <button onclick="addToCart('Sugar')">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="images/oil.png" class="product-img" alt="Cooking Oil">
+        <h3>Cooking Oil</h3>
+        <div class="price">₹120 / litre</div>
+        <div class="qty">
+          Quantity:
+          <input type="number" min="1" value="1">
+        </div>
+        <button onclick="addToCart('Cooking Oil')">Add to Cart</button>
+      </div>
+
+    </div>
+
+    <div class="message" id="msg">✔ Product added to cart</div>
+
+    <div class="actions">
+      <button onclick="goToCart()">Buy Now</button>
+    </div>
+
+    <div class="back">
+      <a onclick="goBack()">← Back to Categories</a>
+    </div>
+
+  </div>
+
+  <script>
+    function addToCart(product){
+      const msg = document.getElementById("msg");
+      msg.style.display = "block";
+      msg.innerText = product + " added to cart";
+      setTimeout(() => { msg.style.display = "none"; }, 2000);
+    }
+
+    function goToCart(){
+      window.location.href = "cart.html";
+    }
+
+    function goBack(){
+      window.location.href = "categories.html";
+    }
+  </script>
+
+</body>
+</html>

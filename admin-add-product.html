@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add / Update Product</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Segoe UI', Arial, sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      background:#f4f6f8;
+      color:#222;
+    }
+
+    header{
+      background:#2874f0;
+      color:#fff;
+      padding:20px 40px;
+      font-size:22px;
+      font-weight:600;
+    }
+
+    .wrapper{
+      padding:40px;
+      max-width:700px;
+    }
+
+    h2{
+      margin-bottom:20px;
+    }
+
+    .form-box{
+      background:#fff;
+      padding:30px;
+      border-radius:16px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.1);
+    }
+
+    label{
+      display:block;
+      margin-bottom:6px;
+      font-size:14px;
+      font-weight:600;
+    }
+
+    input, select{
+      width:100%;
+      padding:12px;
+      margin-bottom:18px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      font-size:14px;
+    }
+
+    .actions{
+      display:flex;
+      gap:15px;
+      margin-top:10px;
+    }
+
+    .actions button{
+      padding:12px 28px;
+      border:none;
+      border-radius:25px;
+      font-size:15px;
+      cursor:pointer;
+    }
+
+    .save{
+      background:#4caf50;
+      color:white;
+    }
+
+    .save:hover{
+      background:#388e3c;
+    }
+
+    .reset{
+      background:#e0e0e0;
+    }
+
+    .message{
+      margin-top:20px;
+      font-size:14px;
+      color:#2e7d32;
+      display:none;
+    }
+
+    .footer{
+      margin-top:30px;
+      font-size:14px;
+    }
+
+    .footer a{
+      color:#2874f0;
+      text-decoration:underline;
+      cursor:pointer;
+    }
+
+    @media(max-width:768px){
+      .wrapper{
+        padding:20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  Admin – Add / Update Product
+</header>
+
+<div class="wrapper">
+
+  <h2>Product Details</h2>
+
+  <div class="form-box">
+
+    <label>Product Name</label>
+    <input type="text" id="name" placeholder="Enter product name">
+
+    <label>Category</label>
+    <select id="category">
+      <option>Dairy</option>
+      <option>Vegetables</option>
+      <option>Grocery</option>
+    </select>
+
+    <label>Price (₹)</label>
+    <input type="number" id="price" placeholder="Enter price">
+
+    <label>Stock Quantity</label>
+    <input type="number" id="stock" placeholder="Enter stock count">
+
+    <div class="actions">
+      <button class="save" onclick="saveProduct()">Save Product</button>
+      <button class="reset" onclick="resetForm()">Reset</button>
+    </div>
+
+    <div class="message" id="msg">
+      ✔ Product saved successfully (demo)
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <a onclick="goDashboard()">← Back to Dashboard</a>
+  </div>
+
+</div>
+
+<script>
+  function saveProduct(){
+    document.getElementById("msg").style.display = "block";
+    setTimeout(() => {
+      document.getElementById("msg").style.display = "none";
+    }, 2000);
+  }
+
+  function resetForm(){
+    document.getElementById("name").value = "";
+    document.getElementById("price").value = "";
+    document.getElementById("stock").value = "";
+  }
+
+  function goDashboard(){
+    window.location.href = "admin-dashboard.html";
+  }
+</script>
+
+</body>
+</html>

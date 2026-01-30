@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dairy Products</title>
+<style>
+body {
+    font-family: Arial;
+    background: #f5f5f5;
+}
+header {
+    background: #2196F3;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 26px;
+}
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 30px;
+}
+.card {
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.card img {
+    width: 120px;
+}
+.price {
+    color: green;
+    font-weight: bold;
+}
+button {
+    background: #2196F3;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 6px;
+}
+</style>
+</head>
+
+<body>
+
+<header>Dairy Products</header>
+
+<div class="products">
+
+<div class="card">
+    <img src="milk.png">
+    <h3>Milk (1L)</h3>
+    <p class="price">₹50</p>
+    Qty: <input type="number" value="1">
+    <br><button>Add to Cart</button>
+</div>
+
+<div class="card">
+    <img src="curd.png">
+    <h3>Curd (500g)</h3>
+    <p class="price">₹40</p>
+    Qty: <input type="number" value="1">
+    <br><button>Add to Cart</button>
+</div>
+
+<div class="card">
+    <img src="butter.png">
+    <h3>Butter (100g)</h3>
+    <p class="price">₹60</p>
+    Qty: <input type="number" value="1">
+    <br><button>Add to Cart</button>
+</div>
+
+</div>
+
+</body>
+</html>
