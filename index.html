@@ -1,127 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Inventory Management System</title>
+  <meta charset="UTF-8">
+  <title>FreshMart</title>
 
-<style>
-body{
-  margin:0;
-  font-family: Arial, sans-serif;
-  min-height:100vh;
-  background-image:url("https://images.unsplash.com/photo-1606787366850-de6330128bfc");
-  background-size:cover;
-  background-position:center;
-}
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
 
-.overlay{
-  min-height:100vh;
-  background:rgba(0,0,0,0.60);
-  display:flex;
-  flex-direction:column;
-}
+    body{
+      min-height:100vh;
+      background: linear-gradient(
+        rgba(0,0,0,0.65),
+        rgba(0,0,0,0.75)
+      ),
+      background-image: url("index.jpg");
+      background-size: cover;
+      background-position: center;
+      color:#fff;
+      transition: background-image 1.2s ease-in-out;
+    }
 
-.header{
-  padding:50px 70px 30px;
-  color:white;
-  max-width:900px;
-}
+    .wrapper{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      padding:60px;
+    }
 
-.header h1{
-  font-size:36px;
-  margin-bottom:14px;
-}
+    .content{
+      max-width:720px;
+    }
 
-/* NEW: sub-heading style */
-.header .highlight{
-  font-size:18px;
-  font-weight:600;
-  line-height:1.6;
-  color:#ffffff;
-  margin-bottom:14px;
-}
+    .badge{
+      display:inline-block;
+      background:#ffcc80;
+      color:#000;
+      padding:6px 16px;
+      border-radius:20px;
+      font-size:13px;
+      font-weight:600;
+      margin-bottom:18px;
+    }
 
-/* normal supporting text */
-.header p{
-  font-size:15px;
-  line-height:1.6;
-  color:#eaeaea;
-  margin-bottom:14px;
-}
+    h1{
+      font-size:44px;
+      line-height:1.2;
+      margin-bottom:22px;
+    }
 
-.actions{
-  padding:0 70px;
-  margin-top:20px;
-}
+    .highlight{
+      color:#ffb74d;
+    }
 
-.actions button{
-  padding:14px 32px;
-  border:none;
-  border-radius:25px;
-  background:#2874f0;
-  color:white;
-  font-size:16px;
-  cursor:pointer;
-}
+    .subtitle{
+      font-size:18px;
+      line-height:1.7;
+      color:#f1f1f1;
+      margin-bottom:22px;
+    }
 
-.actions button:hover{
-  background:#1a5dcc;
-}
+    .points{
+      margin:22px 0;
+    }
 
-.contact{
-  margin-top:auto;
-  padding:20px 40px;
-  text-align:right;
-  color:#eaeaea;
-  font-size:14px;
-}
+    .points div{
+      margin-bottom:10px;
+      font-size:15px;
+      color:#e0e0e0;
+    }
 
-.contact strong{
-  color:white;
-}
-</style>
+    .points span{
+      color:#4caf50;
+      font-weight:bold;
+      margin-right:8px;
+    }
+
+    .actions{
+      margin-top:30px;
+    }
+
+    .actions button{
+      padding:14px 38px;
+      font-size:16px;
+      border:none;
+      border-radius:30px;
+      background:#2874f0;
+      color:white;
+      cursor:pointer;
+      transition:0.3s;
+      box-shadow:0 6px 20px rgba(0,0,0,0.4);
+    }
+
+    .actions button:hover{
+      background:#1a5dcc;
+      transform:translateY(-2px);
+    }
+
+    .note{
+      margin-top:22px;
+      font-size:14px;
+      color:#ccc;
+    }
+
+    .footer{
+      position:absolute;
+      bottom:25px;
+      right:40px;
+      font-size:13px;
+      color:#bbb;
+    }
+
+    @media(max-width:768px){
+      .wrapper{
+        padding:30px;
+      }
+      h1{
+        font-size:34px;
+      }
+    }
+  </style>
 </head>
 
-<body>
+<body id="bg">
 
-<div class="overlay">
+  <div class="wrapper">
+    <div class="content">
 
-  <div class="header">
-    <h1>Inventory Management System</h1>
+      <div class="badge">Fresh • Easy • Everyday</div>
 
-    <!-- BOLD / CLEAR LINES -->
-    <div class="highlight">
-      Find all your daily needs in one place with an easy and smooth shopping experience.
+      <h1>
+        Shop Your <span class="highlight">Daily Needs</span><br>
+        Without Any Confusion
+      </h1>
+
+      <div class="subtitle">
+        From fresh dairy products to vegetables and groceries,
+        everything you need is available in one place —
+        quick to browse, easy to select, and simple to buy.
+      </div>
+
+      <div class="points">
+        <div><span>✔</span>Choose products category-wise</div>
+        <div><span>✔</span>Select quantity as you need</div>
+        <div><span>✔</span>Add items to cart instantly</div>
+        <div><span>✔</span>Get your bill in seconds</div>
+      </div>
+
+      <div class="actions">
+        <button onclick="goToCategories()">
+          Start Shopping
+        </button>
+      </div>
+
+      <div class="note">
+        No sign-up required • Fast checkout • Simple experience
+      </div>
+
     </div>
-
-    <div class="highlight">
-      Browse products quickly, view clear prices, and add items to your cart without confusion.
-    </div>
-
-    <div class="highlight">
-      Designed to save your time and make shopping simple, fast, and reliable.
-    </div>
-
-    <!-- supporting text -->
-    <p>
-      Whether you are purchasing groceries, vegetables, or dairy products,
-      everything is neatly organized for your convenience.
-    </p>
   </div>
 
-  <div class="actions">
-    <a href="categories.html">
-      <button>Explore Products</button>
-    </a>
+  <div class="footer">
+    © 2026 FreshMart
   </div>
 
-  <div class="contact">
-    <strong>Contact Us</strong><br>
-    support@inventorysystem.com<br>
-    +91 98765 43210
-  </div>
+  <script>
+    function goToCategories(){
+      window.location.href = "categories.html";
+    }
 
-</div>
+    // background change after 3.5 seconds
+    setTimeout(() => {
+      document.getElementById("bg").style.backgroundImage =
+        'linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), url("https://images.unsplash.com/photo-1542838132-92c53300491e")';
+    }, 3500);
+  </script>
 
 </body>
 </html>
